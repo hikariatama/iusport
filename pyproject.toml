@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "iusport"
+version = "0.0.1"
+description = ".ical generator for checked in sport events"
+authors = ["hikariatama"]
+license = "GNU AGPLv3"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.31.0"
+aiogram = "==2.19"
+icalendar = "^5.0.7"
+redis = "^5.0.0"
+Flask = "^2.3.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

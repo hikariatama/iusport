@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+     bot:
+          container_name: "iusport-service"
+          build:
+               context: .
+          working_dir: "/usr/src/iusport-service"
+          stop_signal: SIGINT
+          restart: unless-stopped
+          command: "python index.py"
+          ports:
+               - "9234:9234"
+          environment:
+               TOKEN: ${TOKEN}
+               SALT: ${SALT}
+     redis:
+          container_name: "iusport-redis"
+          image: redis:7.0-rc-alpine
+          hostname: redis
+          volumes:
+               - "./redis.conf:/usr/local/etc/redis/redis.conf"
+          command: "redis-server /usr/local/etc/redis/redis.conf"
+          restart: "unless-stopped"
